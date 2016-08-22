@@ -1,0 +1,11 @@
+{
+  "name": "xGrunt",
+  "file": "xGrunt",
+  "version": "0.1.0",
+  "description": "xGrunt demo",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+  }
+}
