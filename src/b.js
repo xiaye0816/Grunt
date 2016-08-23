@@ -1,2 +1,3 @@
 //in line b.js
-console.log("hello b");
+var bjs = "bjs";
+console.log("hello " + bjs);

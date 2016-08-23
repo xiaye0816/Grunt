@@ -3,8 +3,6 @@
  */
 module.exports = function (grunt) {
 
-    console.log("====" + grunt.util.linefeed + "---");
-
     // 项目配置
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -42,12 +40,29 @@ module.exports = function (grunt) {
                 src : ['src/a.js', 'src/b.js'],
                 dest : "build/built.js"
             }
+        },
+
+        uglify : {
+
+            options : {
+
+                mangle : false
+
+            },
+
+            myJs : {
+                files : {
+                    'build/a.min.js' : ['src/a.js', 'src/b.js']
+                }
+            }
+
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // 默认任务
     grunt.registerTask('default', ['clean', 'concat']);
