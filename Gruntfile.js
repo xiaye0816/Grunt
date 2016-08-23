@@ -56,6 +56,22 @@ module.exports = function (grunt) {
                 }
             }
 
+        },
+
+        cssmin : {
+            options : {
+                banner : "//===== common css min header ===="
+            },
+
+            target : {
+                files : [{
+                    expand : true,
+                    cwd : 'src/',
+                    src : ['c.css', 'd.css'],
+                    dest : 'build/',
+                    ext : '.min.css'
+                }]
+            }
         }
     });
 
@@ -63,6 +79,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     // 默认任务
     grunt.registerTask('default', ['clean', 'concat']);
