@@ -17,7 +17,7 @@ module.exports = function (grunt) {
             main : {
                     expand : true,
                     cwd : "src/",
-                    src : ["anc/**"],
+                    src : ["**"],
                     dest : "build/",
                     options : {
                         process : function (content, srcpath) {
@@ -72,6 +72,23 @@ module.exports = function (grunt) {
                     ext : '.min.css'
                 }]
             }
+        },
+
+
+        watch : {
+            watch_js : {
+                files : ['src/*.js'],
+                tasks : ['clean', 'copy'],
+                options : {
+                    spawn : false,
+                    debounceDelay: 250
+                }
+            }
+        },
+
+        exec: {
+            my_ll : "ls -l",
+            my_pwd : "pwd"
         }
     });
 
@@ -80,7 +97,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-exec');
 
     // 默认任务
-    grunt.registerTask('default', ['clean', 'concat']);
+    grunt.registerTask('default', ['clean', 'copy']);
 }
